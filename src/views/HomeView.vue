@@ -1,18 +1,44 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="home-main">
+    <div class="home-main-header">
+      <h1>首页</h1>
+    </div>
+    <div>
+      <el-row :gutter="12">
+        <el-col :span="8">
+          <el-card shadow="hover">
+            <span>
+              <el-icon style="font-size: 50px"><user /></el-icon>
+              用户ID:
+              <h2>{{ userid }}</h2>
+            </span>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card shadow="hover" id="main"></el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card shadow="hover"> Hover </el-card>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
+<script>
+import store from "@/store";
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Options({
-  components: {
-    HelloWorld,
+export default {
+  data() {
+    return {
+      userid: localStorage.token,
+    };
   },
-})
-export default class HomeView extends Vue {}
+  methods() {
+  },
+  created() {
+    //获取传入的参数
+  },
+};
 </script>
+<style scoped>
+</style>
